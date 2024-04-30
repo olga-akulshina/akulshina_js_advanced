@@ -6,15 +6,15 @@ const objArr = [
     { id: 1, name: 'Вася' }
 ];
 
-const mapObj = new Map();
+const uniqueObj = new Set();
 
-objArr.forEach(obj => {
-    const hash = JSON.stringify(obj);
-    if (!mapObj.has(hash)) {
-        mapObj.set(hash, obj);
+const uniqueArr = objArr.filter(object => {
+    if (uniqueObj.has(object.id)) {
+        return false;
+    } else {
+        uniqueObj.add(object.id);
+        return true;
     }
-});
+})
 
-const uniqueObj = new Set(mapObj.values());
-
-console.log(uniqueObj);
+console.log(uniqueArr);

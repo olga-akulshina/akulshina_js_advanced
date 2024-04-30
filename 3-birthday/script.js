@@ -7,12 +7,7 @@ function ageValid(birthday) {
 
     const birthdayDate = Date.parse(birthday);
 
-    if (date14YearsAgo.getTime() >= birthdayDate) {
-        return true;
-    }
-    if (date14YearsAgo.getTime() < birthdayDate) {
-        return false;
-    }
+    return (date14YearsAgo.getTime() >= birthdayDate) ? true : false;
 }
 
 console.log(ageValid('2022-01-01'));
