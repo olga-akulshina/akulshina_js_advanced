@@ -13,8 +13,9 @@ request.addEventListener('load', function () {
     request.send();
 
     request.addEventListener('load', function () {
-        const dittoInfoEn = JSON.parse(this.responseText);
-        console.log(dittoInfoEn);
+        const dittoInfo = JSON.parse(this.responseText);
+        const englishEntry = dittoInfo.effect_entries.find(entry => entry.language.name === "en");
+        console.log(englishEntry ? englishEntry.effect : 'No English entry found');
     })
 })
 
